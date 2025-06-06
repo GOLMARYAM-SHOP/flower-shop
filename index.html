@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>گل فروشی گل مریم</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <header>
+        <h1>گل فروشی گل مریم</h1>
+        <p>بهترین و باکیفیت‌ترین گل‌های طبیعی را از ما بخواهید</p>
+    </header>
+
+    <main>
+        <section class="flowers-container">
+            <article class="flower-card">
+                <img src="flower1.jpg" alt="گل مریم" class="flower-img">
+                <h2>گل مریم</h2>
+                <p>گل مریم با عطر دلنشین و ظاهر زیبا، یکی از محبوب‌ترین گل‌ها برای تزئینات و دسته گل است.</p>
+                <div class="buttons">
+                    <button class="buy-btn" onclick="thankYou()">خرید</button>
+                    <button class="info-btn" onclick="showMoreInfo('مریم')">اطلاعات بیشتر</button>
+                </div>
+            </article>
+
+            <article class="flower-card">
+                <img src="flower2.jpg" alt="گل رز" class="flower-img">
+                <h2>گل رز</h2>
+                <p>گل رز نماد عشق و محبت، با تنوع رنگ‌های چشم‌نواز، انتخاب ایده‌آلی برای هدیه است.</p>
+                <div class="buttons">
+                    <button class="buy-btn" onclick="thankYou()">خرید</button>
+                    <button class="info-btn" onclick="showMoreInfo('رز')">اطلاعات بیشتر</button>
+                </div>
+            </article>
+
+            <article class="flower-card">
+                <img src="flower3.jpg" alt="گل نرگس" class="flower-img">
+                <h2>گل نرگس</h2>
+                <p>گل نرگس با ظاهر منحصر به فرد و عطر بهاری، مناسب برای فصل‌های سرد سال است.</p>
+                <div class="buttons">
+                    <button class="buy-btn" onclick="thankYou()">خرید</button>
+                    <button class="info-btn" onclick="showMoreInfo('نرگس')">اطلاعات بیشتر</button>
+                </div>
+            </article>
+
+            <article class="flower-card">
+                <img src="flower4.jpg" alt="گل عروس" class="flower-img">
+                <h2>گل عروس</h2>
+                <p>گل عروس با شکوفه‌های سفید و کوچک، انتخابی محبوب برای دسته گل عروس و تزئینات مراسم است.</p>
+                <div class="buttons">
+                    <button class="buy-btn" onclick="thankYou()">خرید</button>
+                    <button class="info-btn" onclick="showMoreInfo('عروس')">اطلاعات بیشتر</button>
+                </div>
+            </article>
+        </section>
+    </main>
+
+    <footer>
+        <p>تمامی حقوق برای گل فروشی گل مریم محفوظ است © 2023</p>
+    </footer>
+
+    <div id="thankYouModal" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="closeModal()">&times;</span>
+            <p>از خرید شما متشکریم!</p>
+        </div>
+    </div>
+
+    <div id="infoModal" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="closeModal()">&times;</span>
+            <h2 id="infoTitle">اطلاعات بیشتر</h2>
+            <p id="infoText"></p>
+        </div>
+    </div>
+
+    <script>
+        function thankYou() {
+            document.getElementById('thankYouModal').style.display = 'block';
+        }
+
+        function showMoreInfo(flower) {
+            let title = document.getElementById('infoTitle');
+            let text = document.getElementById('infoText');
+            
+            title.textContent = `اطلاعات بیشتر درباره گل ${flower}`;
+            
+            switch(flower) {
+                case 'مریم':
+                    text.textContent = 'گل مریم با نام علمی Polianthes tuberosa گیاهی چندساله با گل‌های سفید و معطر است. این گل بومی مکزیک بوده و در آب و هوای گرم بهتر رشد می‌کند. گل مریم در صنعت عطرسازی نیز کاربرد دارد و معمولاً در شب عطر بیشتری منتشر می‌کند.';
+                    break;
+                case 'رز':
+                    text.textContent = 'گل رز با نام علمی Rosa سرده‌ای از گیاهان چوبی چندساله در خانواده Rosaceae است. بیش از 300 گونه و هزاران رقم پرورشی دارد. گل رز در بسیاری از فرهنگ‌ها نماد عشق، زیبایی، سیاست و جنگ است. رنگ‌های مختلف رز معانی متفاوتی دارند.';
+                    break;
+                case 'نرگس':
+                    text.textContent = 'گل نرگس با نام علمی Narcissus گیاهی پیازدار و بهاری است. این گل بومی اروپا و شمال آفریقا است و در ادبیات فارسی نماد خودبینی و عشق است. نرگس به دلیل مقاومت به سرما، مناسب برای کاشت در فصل پاییز است.';
+                    break;
+                case 'عروس':
+                    text.textContent = 'گل عروس یا گل دوشیزه با نام علمی Gypsophila گیاهی یکساله یا چندساله با گل‌های ریز و سفید است. این گل به عنوان گل حاشیه‌ای در دسته گل‌ها استفاده می‌شود و نماد پاکی و معصومیت است. گل عروس نیاز به نور زیاد و خاک زهکشی شده دارد.';
+                    break;
+            }
+            
+            document.getElementById('infoModal').style.display = 'block';
+        }
+
+        function closeModal() {
+            document.getElementById('thankYouModal').style.display = 'none';
+            document.getElementById('infoModal').style.display = 'none';
+        }
+
+        window.onclick = function(event) {
+            if (event.target.className === 'modal') {
+                closeModal();
+            }
+        }
+    </script>
+</body>
+</html>
